@@ -30,10 +30,9 @@ El propósito de este proyecto fue crear un **portfolio profesional** que me rep
 ---
 
 ## 📚 Lo que aprendí
-- Cómo integrar animaciones con **GSAP** en un proyecto de portfolio.  
 - Mejores prácticas en **diseño responsive** con TailwindCSS.  
-- Organización de secciones y componentes en Astro.  
-- Optimización de un sitio para su despliegue en producción.  
+- Optimización de un sitio para su despliegue en producción.
+- Buenas practicas   
 
 ---
 
@@ -46,7 +45,7 @@ El propósito de este proyecto fue crear un **portfolio profesional** que me rep
 
 ## 🔗 Demo
 El proyecto está desplegado en **Netlify**:  
-👉 [Ver portfolio en línea](https://TU-PORTFOLIO-LINK.netlify.app)
+👉 [Ver portfolio en línea](https://ankdev.netlify.app/)
 
 ---
 
@@ -58,11 +57,10 @@ Aquí una vista previa de mi portfolio:
 ---
 
 ## 📌 Próximos pasos
-- Agregar un **modo oscuro (dark mode)**.  
 - Mejorar las **animaciones con ScrollTrigger**.  
 - Incluir sección de **blog** para compartir artículos técnicos.  
 - Optimizar aún más el SEO con **metadatos personalizados**.  
 
 ---
 
-✍️ _Proyecto desarrollado por [Tu Nombre](https://github.com/TU-USUARIO)_
+✍️ _Proyecto desarrollado por [Tu Nombre]([https://github.com/TU-USUARIO](https://github.com/3AeMe3/Portfolio-Personal/))_
