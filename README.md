@@ -16,9 +16,9 @@ El propósito de este proyecto fue crear un **portfolio profesional** que me rep
 ---
 
 ## 🛠️ Tecnologías utilizadas
-- ⚛️ [React](https://react.dev/) (si lo usaste en alguna sección).  
-- 🎨 [TailwindCSS](https://tailwindcss.com/) – Para el diseño responsive.  
-- 🌐 [Netlify](https://www.netlify.com/) – Para el despliegue.  
+- ⚛️ [React](https://react.dev/)  
+- 🎨 [TailwindCSS](https://tailwindcss.com/) 
+- 🌐 [Netlify](https://www.netlify.com/)  
 
 ---
 
