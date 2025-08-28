@@ -1,17 +1,45 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import emailjs from '@emailjs/browser';
 import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle } from 'lucide-react';
 
 const Contact: React.FC = () => {
+  const form = useRef<HTMLFormElement>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    subject: '',
+    title: '',
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'success' | 'error' | null>(null);
 
+
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    try {
+      await emailjs.sendForm(
+        "service_5kgj818",
+        "template_akwc2ta",
+        form.current!,{
+        publicKey: "Y2SFoCW2mcRnTKBl_"}
+      );
+      
+      setSubmitStatus('success');
+      setFormData({ name: '', email: '', title: '', message: '' });
+      
+    } catch (error) {
+      console.log("hay un error" ,error)
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+  
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -35,25 +63,6 @@ const Contact: React.FC = () => {
       ...prev,
       [e.target.name]: e.target.value
     }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitStatus(null);
-
-    try {
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
-      console.log('Form submitted:', formData);
-      
-      setSubmitStatus('success');
-      setFormData({ name: '', email: '', subject: '', message: '' });
-    } catch (error) {
-      setSubmitStatus('error');
-    } finally {
-      setIsSubmitting(false);
-    }
   };
 
   const contactInfo = [
@@ -145,7 +154,8 @@ const Contact: React.FC = () => {
           </div>
 
           <div className={`transform transition-all duration-1000 delay-500 ${isVisible ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0'}`}>
-            <form onSubmit={handleSubmit} className="bg-slate-50 dark:bg-slate-700 p-8 rounded-2xl">
+            
+            <form ref={form} onSubmit={handleSubmit} className="bg-slate-50 dark:bg-slate-700 p-8 rounded-2xl">
               <h3 className="text-2xl font-bold text-slate-800 dark:text-white mb-6">
                 Envíame un mensaje
               </h3>
@@ -203,14 +213,14 @@ const Contact: React.FC = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
+                  <label htmlFor="title" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
                     Asunto
                   </label>
                   <input
                     type="text"
-                    id="subject"
-                    name="subject"
-                    value={formData.subject}
+                    id="title"
+                    name="title"
+                    value={formData.title}
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 bg-white dark:bg-slate-600 border border-slate-200 dark:border-slate-500 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent text-slate-800 dark:text-white"

@@ -69,21 +69,16 @@ const Projects: React.FC = () => {
       fullDescription:
         "Un sitio web desarrollado para mostrar mis capacidades como frontend. Diseñado con un enfoque moderno, animaciones y un diseño responsive para ofrecer una experiencia clara y atractiva :) ",
       image:
-        "https://images.pexels.com/photos/262978/pexels-photo-262978.jpeg?auto=compress&cs=tinysrgb&w=800",
-      technologies: [
-        "React",
-        "Vite",
-        "Tailwind CSS",
-      ],
+        "https://github.com/3AeMe3/Portfolio-Personal/raw/main/src/assets/screenshot-portfolio.png",
+      technologies: ["React", "TypeScript", "Vite", "Tailwind CSS"],
       category: "web",
-      demoUrl: "https://demo-restaurant.example.com",
-      githubUrl: "https://github.com/example/restaurant",
+      demoUrl: "https://ankdev.netlify.app/",
+      githubUrl: "https://github.com/3AeMe3/Portfolio-Personal",
       features: [
-        "Sistema de reservas",
-        "Menú interactivo",
-        "Galería de fotos",
-        "Integración con Google Maps",
-        "Multi-idioma",
+        "Seccion de proyectos con enlaces",
+        "Modo Oscuro",
+        "Diseño responsive",
+        "Formulario de contacto",
       ],
     },
   ];
