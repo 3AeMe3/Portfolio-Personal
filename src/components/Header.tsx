@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Menu, X, Github, Linkedin, Download, Moon, Sun } from 'lucide-react';
+import React, { useState, useEffect } from "react";
+import { Menu, X, Github, Linkedin, Download, Moon, Sun } from "lucide-react";
 
 interface HeaderProps {
   activeSection: string;
@@ -15,55 +15,57 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
       setIsScrolled(window.scrollY > 20);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
-    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+    const savedTheme = localStorage.getItem("theme");
+    const prefersDark = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches;
+
+    if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
       setIsDarkMode(true);
-      document.documentElement.classList.add('dark');
+      document.documentElement.classList.add("dark");
     } else {
       setIsDarkMode(false);
-      document.documentElement.classList.remove('dark');
+      document.documentElement.classList.remove("dark");
     }
   }, []);
 
   const toggleDarkMode = () => {
     const newDarkMode = !isDarkMode;
     setIsDarkMode(newDarkMode);
-    
+
     if (newDarkMode) {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
     } else {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
     }
   };
 
   const menuItems = [
-    { id: 'home', label: 'Inicio' },
-    { id: 'about', label: 'Sobre mí' },
-    { id: 'projects', label: 'Proyectos' },
-    { id: 'contact', label: 'Contacto' },
+    { id: "home", label: "Inicio" },
+    { id: "about", label: "Sobre mí" },
+    { id: "projects", label: "Proyectos" },
+    { id: "contact", label: "Contacto" },
   ];
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     }
     setIsMenuOpen(false);
   };
 
   const downloadCV = () => {
-    const link = document.createElement('a');
-    link.href = '/cv-example.pdf'; // Ruta al archivo CV
-    link.download = 'CV-Developer.pdf';
+    const link = document.createElement("a");
+    link.href = "/CV.pdf";
+    link.download = "CV-Frank-Mendoza.pdf";
     link.click();
   };
 
@@ -71,8 +73,8 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-lg'
-          : 'bg-transparent'
+          ? "bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-lg"
+          : "bg-transparent"
       }`}
     >
       <nav className="container mx-auto px-6 py-4">
@@ -88,8 +90,8 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
                 onClick={() => scrollToSection(item.id)}
                 className={`font-medium transition-colors duration-300 hover:text-blue-600 ${
                   activeSection === item.id
-                    ? 'text-blue-600'
-                    : 'text-slate-600 dark:text-slate-300'
+                    ? "text-blue-600"
+                    : "text-slate-600 dark:text-slate-300"
                 }`}
               >
                 {item.label}
@@ -147,8 +149,8 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
                   onClick={() => scrollToSection(item.id)}
                   className={`block w-full text-left font-medium transition-colors duration-300 ${
                     activeSection === item.id
-                      ? 'text-blue-600'
-                      : 'text-slate-600 dark:text-slate-300'
+                      ? "text-blue-600"
+                      : "text-slate-600 dark:text-slate-300"
                   }`}
                 >
                   {item.label}
@@ -160,7 +162,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
                   className="flex items-center space-x-3 w-full text-left p-2 text-slate-600 dark:text-slate-300 hover:text-blue-600 transition-colors duration-300"
                 >
                   {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
-                  <span>{isDarkMode ? 'Modo claro' : 'Modo oscuro'}</span>
+                  <span>{isDarkMode ? "Modo claro" : "Modo oscuro"}</span>
                 </button>
               </div>
               <div className="flex items-center space-x-4 pt-4 border-t border-slate-200 dark:border-slate-700">
